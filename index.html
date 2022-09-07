@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.5.2/browser/pixi.js" integrity="sha512-XHX32YCocEDCIiENmO7pf91TtRITLfCagN+uLlj9sJ7RUVBHN1JZtlfb02x4OyXfkuQegd1u6i9mzpRMg+w5xw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>">
+</head>
+<body>
+    <script>
+        console.log(`Pixi`, PIXI);
+        const game = new PIXI. Application(
+            {
+                width:innerWidth,
+                height:innerHeight,
+                backgroundColor:0xff0000
+            }
+        );
+        document.body.appendChild(game.view);
+        const hello = new PIXI.Text("Hello World");
+        hello.x=innerWidth/2;
+        hello.y=innerHeight/2;
+        hello.anchor.set(0.5);
+        game.stage.addChild(hello);
+
+        game.loader.load(
+            () => 
+            {
+                const car = PIXI.Sprite.from('https://cdn.pixabay.com/photo/2017/02/01/12/23/car-2030056_960_720.png');
+                game.stage.addChild(car);
+                car.x=500;
+                car.y=200;
+                const animal = PIXI.Sprite.from('https://cdn.pixabay.com/photo/2016/03/23/04/57/cat-1274094_1280.png');
+                game.stage.addChild(animal);
+                animal.x=100;
+                animal.y=50;
+                animal.height=250
+                animal.width=250;
+
+            }
+        );
+    </script>
+
+</body>
+</html>
